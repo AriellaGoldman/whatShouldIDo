@@ -1,0 +1,16 @@
+$def with (question, commentsList) #parameters coming in, 
+<!-- question=> name(user name) , opt1, opt2, -->
+<!-- comments=> list of comments ->>
+<!-- comment object=> ans(string), up(int) , down(int) -->
+
+<div>
+	<div class="question">
+		$question.name 
+		
+	</div>
+	<ul> 
+		$for comment in commentsList:
+			<li>$comments.ans</li>
+	</ul>
+
+</div>
