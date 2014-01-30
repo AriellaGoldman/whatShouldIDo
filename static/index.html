@@ -28,9 +28,11 @@ $def with ()
       }
 
       function showLogout() {
-        $.ajax({
+        $$.ajax({
           url: "/s/logout",
-          success: showLogin();
+          success: function() {
+            showLogin();
+          }
         });
       }
       
@@ -102,14 +104,10 @@ $def with ()
       </div>
       
       <div id='popup' class='popup'></div>
-
-	</div>
-  </body>
-  <footer>
-        <div class="panel panel-default">
+      <div class="panel panel-default">
 		<div class="panel-body" style="text-align:right;">
 			By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
 	  </div>
-  
-  </footer>
+	</div>
+  </body>
 </html>
