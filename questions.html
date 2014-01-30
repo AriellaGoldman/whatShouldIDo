@@ -3,20 +3,19 @@
 <head>
 	
 	<title>WSID Questions</title>
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 	</script>
 		<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="static/questions_style.css">
+	<link rel="stylesheet" type="text/css" href="/static/questions_style.css">
 	<script src="dist/js/bootstrap.js"></script>
 
-	<script src="static/load_qs.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="/static/questions_style.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="/static/load_qs.js"></script>
-
+	<script src="/static/load_qs.js"></script>
+	<script src="/static/pagination.js"></script>
+  
+  <script>
+    var pager = new paginator('qlist');
+  </script>
 </head>
 
 <body><!-- onload="load_qs('qlist',0)"> -->
@@ -30,7 +29,6 @@
 	<span id="top-right" type="logout">Log-out</span>
 	<h1>WSID Questions</h1>
 	<h3>Most recent</h3>
-	<h4>this is h4</h4>
 	
 	<div class="question">
 		
@@ -38,7 +36,7 @@
 		
 	</div>
 
-	<span id="bottom-right">More Questions</span>
+	<span id="bottom-right" onclick='pager.loadnext()'>More Questions</span>
 </body>
 
 </html>
