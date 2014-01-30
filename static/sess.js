@@ -30,3 +30,21 @@
         });
         alert(arr.join('&'));
       }
+      
+      function doErrorMessage() {
+		var arr = [];
+		$.ajax({
+			statusCode: {
+				403: function() {
+				$("#error").html("Error: Mismatched Passwords");
+				}
+			}
+			statusCode: {
+				401: function() {
+					$("#error").html("Error: Username/Password is incorrect");
+				}
+			}
+		});
+	  }
+		$("#error").html("Error: Invalid Input");
+	  }	
