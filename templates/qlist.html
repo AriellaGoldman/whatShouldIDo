@@ -1,7 +1,7 @@
 $def with(qlist)
 <!-- loop.index, name, opt1, opt2-->
 
-<ul>
+<ul id='qlist'>
 	$for q in qlist:
-		<li>...$q.opt1 or $(q.opt2)? by $q.name</li>
+		<li><a href='/u/questions/$q.id'>...$q.opt1 or $(q.opt2)? by $q.name</a></li>
 </ul>
