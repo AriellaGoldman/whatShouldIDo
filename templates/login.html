@@ -1,4 +1,4 @@
-$def with ()
+$def with (xsrf)
 
 <div id="login">
   <h1>Login</h1>
@@ -7,6 +7,7 @@ $def with ()
     <input class="input_field" name='email' type='text'/><br/><br/>
     <span class='plain_text'>Password: </span>
     <input class="input_field" name='pword' type='password'/><br/><br/>
+    <input type='hidden' name='xsrf' value='$xsrf'/>
   </div>
   <div id="error"></div>
   <div class='login-button'>			

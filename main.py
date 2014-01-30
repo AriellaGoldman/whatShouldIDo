@@ -35,7 +35,10 @@ class RealQPage(object):
 class QList(object):
   def GET(self):
     params = web.input(limit=20, offset=0)
-    res = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, offset=params.offset)
+    res2 = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, offset=params.offset)
+    res = [r for r in res2]
+    if len(res) < 1:
+      raise status.ApiError('403 Invalid Page')
     raise status.ApiReturn('templates/qlist', res)
   
   def POST(self):
@@ -58,7 +61,10 @@ class QPage(object):
     qx = util.select_one('qlist JOIN users ON qlist.uid = users.id', where='qlist.id=$id', vars={'id': pid})
     if qx is None:
       raise status.ApiError('401 Invalid Question')
-    res = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
+    res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
+    res = [r for r in res2]
+    if len(res) < 1:
+      raise status.ApiError('403 Invalid Page')
     
     sess = util.get_sess()
     raise status.ApiReturn('templates/question', qx, res)
@@ -117,7 +123,9 @@ class Logout(object):
 
 class Login(object):
   def GET(self):
-    raise status.ApiReturn('templates/login')
+    xsrf = str(uuid.uuid1())
+    util.insert('xsrf', token=xsrf)
+    raise status.ApiReturn('templates/login', xsrf)
   
   def user_auth(self, email, pword):
     user = util.select_one('users', where='email=$e', vars={'e':email})
@@ -131,9 +139,17 @@ class Login(object):
   def POST(self):
     var = web.input()
     
+    
     if 'fb' in var:
-      raise status.ApiError('200 OK')
+      xsrf = util.select_one('xsrf', where='token=$tok', vars={'tok': var.xsrf})
+      if xsrf is None:
+        raise status.ApiError('401 Unauthorized')
+      
     try:
+      xsrf = util.select_one('xsrf', where='token=$tok', vars={'tok': var.xsrf})
+      if xsrf is None:
+        raise status.ApiError('401 Unauthorized')
+      
       user = self.user_auth(var.email, var.pword)
       if user is None:
         print "this one"

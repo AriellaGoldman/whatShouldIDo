@@ -22,7 +22,7 @@ function pagination(page_elt) {
         $("#" + page_elt + " li").each(function(idx,elem) {
           elem.innerHTML = (10*page_number + idx + 1) + ". " + elem.innerHTML;
         });
-			} 
+			}
 		});
     
 	}
