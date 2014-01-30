@@ -8,6 +8,17 @@ html,body {
   padding: 0px;
 	font-family: calibri;
 }
+#top-right{
+	float: right;
+	border: solid;
+	border-color: #66FFCC;
+	margin-right:0.5em;
+	margin-left: 0.5em;
+	width: 6em;
+	text-align: center;
+	font-weight: bold;
+
+}
 #top{
 	font-family: Calibri;
 	font-size: 4em;
@@ -50,6 +61,7 @@ html,body {
   border: 1px solid;
   background: rgb(255,255,255);
   overflow: hidden;
+  display: none;
 }
 
 .plain_text{
