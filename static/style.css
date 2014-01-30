@@ -86,3 +86,11 @@ html,body {
   float: right;
   width: 20em;
 }
+
+.nav-button:hover {
+	color: blue;
+} 
+
+.nav-button {
+	float: right;
+}
