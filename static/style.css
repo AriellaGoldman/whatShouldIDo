@@ -87,10 +87,6 @@ html,body {
 	padding-bottom:10%;
 }
 
-.input_text{
-  float: right;
-  width: 20em;
-}
 
 .nav-button:hover {
 	color: blue;
