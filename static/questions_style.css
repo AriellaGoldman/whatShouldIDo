@@ -73,7 +73,7 @@ span:hover{
 
 .bottom-right{
 	float: right;
-	border: solid;
+	border: none;
 	margin-right:0.5em;
 	margin-left: 0.5em;
 	width: 10em;
@@ -82,7 +82,7 @@ span:hover{
 
 .bottom-left{
 	float: left;
-	border: solid;
+	border: none;
 	margin-right:0.5em;
 	margin-left: 0.5em;
 	width: 10em;
