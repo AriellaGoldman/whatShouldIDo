@@ -11,7 +11,7 @@ $def with (question, commentsList)
 	<div id="comment" ContentEditable="true">
 		Oblige them.
 	</div>
-	<span id="comments" onclick='doComment()'>Comment</span>
+	<span class="btn btn-info" id="comments" onclick='doComment()'>Comment</span>
 	<ul id='cm-list'> 
 		$for comment in commentsList:
 			<li>$comment.ans</li>
