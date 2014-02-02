@@ -22,13 +22,21 @@ $def with ()
       function showLogin() {
         $$("#popup").load("/s/login").show();
       }
+      
+      function doLogin() {
+        var arr = [];
+        $$("#popup")("input").each(function(idx,elem) {
+          arr.push(elem.id + "=" elem.value);
+        });
+        alert(arr.join());
+      }
     </script>
   
   </head>
 
   <body>	
-    <button id="top-right" type="login" onClick="showRegister">Register</button>
-	<button id="top-right" type="login" onClick="showLogin">Log-in</button>
+    <button id="top-right" type="login" onClick="showRegister()">Register</button>
+    <button id="top-right" type="login" onClick="showLogin()">Log-in</button>
       <span id="top">What Should I Do?</span>
       <div id='sbox'>
         <span>Should I</span>
