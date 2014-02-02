@@ -19,3 +19,17 @@ h1{
 	margin-left: 3em;
 	text-align: left;
 }
+
+.comments{
+	color: orange;
+	text-decoration: underline;
+}
+
+#bottom-right{
+	float: right;
+	border: solid;
+	margin-right:0.5em;
+	margin-left: 0.5em;
+	width: 6em;
+	text-align: center;
+}
