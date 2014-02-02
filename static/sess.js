@@ -10,7 +10,7 @@
 
       function showLogout() {
         $.post("/s/logout");
-        location.reload();
+        window.location = '/';
       }
       
       function doLogin() {
@@ -44,7 +44,6 @@
           if(elem.getAttribute('type') != 'button')
             arr.push(elem.id + "=" + elem.value);
         });
-        alert(arr.join('&'));
         
         $.ajax({
           url: "/s/register?" + arr.join('&'),
