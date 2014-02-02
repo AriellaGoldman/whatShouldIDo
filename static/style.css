@@ -56,11 +56,11 @@ html,body {
 	float: left;
 	display:inline-block;
 }
-
 .input_field{
 	width: 15em;
 	float: right;
 }
+
 
 .login-button{
 	display:inline-block;
