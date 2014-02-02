@@ -29,7 +29,8 @@ class Static(object):
 
 class RealQPage(object):
   def GET(self,q):
-    raise status.ApiReturn('static/question', q)
+    sess = util.get_sess()
+    raise status.ApiReturn('static/question', q, sess)
 
 class QList(object):
   def GET(self):
@@ -39,6 +40,8 @@ class QList(object):
   
   def POST(self):
     sess = util.get_sess()
+    if not sess:
+      raise status.ApiError('401 Unauthorized')
     qx = web.input()
     
     try:
@@ -54,7 +57,9 @@ class QPage(object):
     if qx is None:
       raise status.ApiError('401 Invalid Question')
     res = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
-    raise status.ApiReturn('templates/question', qx, res, sess)
+    
+    sess = util.get_sess()
+    raise status.ApiReturn('templates/question', qx, res)
   
   def POST(self, pid):
     qx = util.select_one('qlist', where='id=$id', vars={'id': pid})
