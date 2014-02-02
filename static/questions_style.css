@@ -33,6 +33,7 @@ h1{
 	margin-left: 0.5em;
 	width: 6em;
 	text-align: center;
+	padding-left: 5%;
 }
 
 ul{
@@ -45,7 +46,7 @@ li:hover{
 }
 
 span{
-	width: 4em;
+	width: 5em;
 	border:2px solid;
 	border-radius:25px;
 }
