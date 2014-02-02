@@ -101,3 +101,11 @@ html,body {
 .nav-pullleft {
 	float: left;
 }
+
+#qlist a {
+  color: rgb(0,0,0);
+}
+
+#qlist a:hover {
+  text-decoration: none;
+}
