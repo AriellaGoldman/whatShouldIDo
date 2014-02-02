@@ -1,20 +1,25 @@
-#title {
-	text-align: center;
-	font-family: Calibri;
-
+html,body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+	font-family: calibri;
 }
 
-#login {
-	text-align: center;
-	font-family: Calibri;
-
+#sbox > * {
+  margin: 2px;
 }
 
-.main {
-	text-align: center;
-
+#sbox > div {
+  border: 1px solid;
+  min-width: 10em;
+  height: 1em;
+  display: inline-block;
 }
-.text{
-		margin-right: 2em;
-}
 
+#sbox {
+  position: relative;
+  top: 40%;
+  padding: auto;
+}
