@@ -10,7 +10,6 @@
 
       function showLogout() {
         $.post("/s/logout");
-        showLogin();
       }
       
       function doLogin() {

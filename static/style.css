@@ -6,8 +6,12 @@ html,body {
   text-align: center;
   margin: 0px;
   padding: 0px;
+}
+
+* { 
   font-family: Calibri;
 }
+
 #top-right{
 	float: right;
 	border: solid;
@@ -20,7 +24,6 @@ html,body {
 
 }
 #top{
-	font-family: Calibri;
 	font-size: 4em;
 	color: #99FFFF;
 	text-align: center;

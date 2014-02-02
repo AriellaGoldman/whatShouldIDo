@@ -20,45 +20,48 @@ $def with (sess)
   
   </head>
 
-  <body style="font-family:Calibri;">
-	 <nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="./">What Should I Do?</a>
-			</div>
-			   <!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				  <ul class="nav nav-pullright">
-            <li class="nav-pullleft" style="float:left;">
-                <a href="/u/about">About</a>
+  $if sess is None:
+    <body onload='showLogin()'>
+  $else:
+    <body>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">What Should I Do?</a>
+    </div>
+       <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav nav-pullright">
+          <li class="nav-pullleft" style="float:left;">
+              <a href="/u/about">About</a>
+          </li>
+    <li class="nav-pullleft" style="float:left;">
+              <a href="/u/questions">Questions</a>
+          </li>
+          $if sess is None:
+            <li class="nav-button" type="login" onclick="showLogin()">
+              <a href="#">Login</a>
             </li>
-			<li class="nav-pullleft" style="float:left;">
-                <a href="/u/questions">Questions</a>
+            <li class="nav-button" type="register" onclick="showRegister()">
+              <a href="#">Register</a>
             </li>
-            $if sess is None:
-              <li class="nav-button" type="login" onclick="showLogin()">
-                <a href="#">Login</a>
-              </li>
-              <li class="nav-button" type="register" onclick="showRegister()">
-                <a href="#">Register</a>
-              </li>
-            $else:
-              <li class="nav-button" type="register" onclick="showLogout()">
-                <a href="#">logout</a>
-              </li>
-              
-				  </ul>
-				  
-				</div> 
-      </div>
-		</nav>
+          $else:
+            <li class="nav-button" type="register" onclick="showLogout()">
+              <a href="#">logout</a>
+            </li>
+            
+        </ul>
+        
+      </div> 
+    </div>
+  </nav>
 	  
       <span id="top">What Should I Do?</span>
       <div id='sbox'>
@@ -73,7 +76,7 @@ $def with (sess)
       
       <div id='popup' class='popup'></div>
       
-    <div style='position: relative; top: 65%' class="panel panel-default">
+    <div style='position: relative; top: 60%' class="panel panel-default">
       <div class="panel-footer navbar-fixed-bottom" style="text-align:right;">
         By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
       </div>

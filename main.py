@@ -93,7 +93,7 @@ class Register(object):
     except KeyError as err:
       raise status.ApiError('401 Unauthorized')
       
-    raise status.ApiError('200 OK')
+    web.redirect('/')
 
 class Logout(object):
   def POST(self):
@@ -106,6 +106,7 @@ class Logout(object):
       raise status.ApiError('401 Not logged in')
     except KeyError:
       raise status.ApiError('401 Invalid session')
+    web.redirect('/')
 
 class Login(object):
   def GET(self):
@@ -133,7 +134,8 @@ class Login(object):
     except KeyError as err:
       raise status.ApiError('401 Unauthorized')
       
-    raise status.ApiError('200 OK')
+    web.redirect('/')
+    #raise status.ApiError('200 OK')
 
 if __name__ == "__main__":
   app = web.application(urls, globals())
