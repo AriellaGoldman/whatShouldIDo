@@ -1,4 +1,4 @@
-window.onload=function() {
+function fblogin() {
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '217657201758115',
