@@ -1,2 +1,2 @@
 web.py==0.37
-bcrypt==0.4
+bcrypt==0.4-1
