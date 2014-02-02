@@ -28,15 +28,3 @@ function pagination(page_elt) {
     page_number--;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-}
