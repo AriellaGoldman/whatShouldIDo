@@ -1,0 +1,26 @@
+#title {
+	text-align: center;
+	font-family: Calibri;
+}
+
+.start{
+	border: solid;
+	float: left;
+	display: inline;
+}
+
+.text{
+	font-family: Calibri;
+	display: inline;
+	float: left;
+	border: none;
+	margin-right: 2em;
+	margin-left: 2em;
+}
+
+.main{
+	width:100%;
+    position:absolute;
+    padding-left: 35%;
+    padding-bottom: 50%;
+}
