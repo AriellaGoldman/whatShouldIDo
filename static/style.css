@@ -1,5 +1,6 @@
 html,body {
   background-color: #99CCFF;
+  background-image:url("water.JPG");
   width: 100%;
   height: 100%;
   text-align: center;
@@ -7,7 +8,13 @@ html,body {
   padding: 0px;
 	font-family: calibri;
 }
+#top{
+	font-family: Calibri;
+	font-size: 4em;
+	color: #99FFFF;
+	text-align: center;
 
+}
 #sbox > * {
   margin: 2px;
 }
@@ -50,11 +57,11 @@ html,body {
 	float: left;
 	display:inline-block;
 }
-
 .input_field{
 	width: 15em;
 	float: right;
 }
+
 
 .login-button{
 	display:inline-block;
