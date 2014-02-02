@@ -8,6 +8,7 @@ $def with (sess)
     <script src="/static/fblogin.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css">
     <script src="/static/dist/js/bootstrap.js"></script>
+    <script src="/static/sess.js"></script>
   </head>
 	<body>
 	 
@@ -34,7 +35,7 @@ $def with (sess)
               <li class="nav-button" type="login" onclick="showLogin()">
                 <a href="#">Login</a>
               </li>
-              <li class="nav-button" type="register" onclick="showReigster()">
+              <li class="nav-button" type="register" onclick="showRegister()">
                 <a href="#">Register</a>
               </li>
             $else:
@@ -45,31 +46,40 @@ $def with (sess)
                 <a href="#">Logout</a>
               </li>
 				  </ul>
+        </div>
 			</div>
 		</nav>
 		
-    <div class="bio">
-      <img src="/static/ariella.jpg" width="200px" height="200px">
-      <p>Ariella Levine</p>
-      <p>University of Pennsylvania, Class of 2015</p>
-      <p>Major: Computer and Cognitive Science</p>
-      <br></br>
-      <img src="/static/jack.jpg" width="200px" height="200px">
-      <p>Jack Gindi</p>
-      <p>University of Pennsylvania, Class of 2016</p>
-      <p>Major: Computer Science</p>
-      <br></br>
-      <img src="/static/krupka.jpg" width="200px" height="200px">
-      <p>Daniel "Krupcake" Krupka</p>
-      <p>University of Pennsylvania, Class of 2016</p>
-      <p>Majors: (undergrad) Computer Science, (grad) Robotics</p>
-      <br></br>
-      <img src="/static/Adam.jpg" width="200px" height="200px">
-      <p>Adam Poliak</p>
-      <p>Johns Hopkins University, Class of 2016</p>
-      <p>Major: Computer Science</p>
+    <div class="bio" style='padding-left: auto; padding-right: auto'>
+      <div style='margin-left: auto; margin-right: auto'>
+        <div style='float:left'>
+          <img src="/static/ariella.jpg" height="200px">
+          <p>Ariella Levine</p>
+          <p>University of Pennsylvania, Class of 2015</p>
+          <p>Major: Computer and Cognitive Science</p>
+        </div>
+        <div style='float:left'>
+          <img src="/static/jack.jpg" height="200px">
+          <p>Jack Gindi</p>
+          <p>University of Pennsylvania, Class of 2016</p>
+          <p>Major: Computer Science</p>
+        </div>
+        <div style='float:left'>
+          <img src="/static/krupka.jpg" height="200px">
+          <p>Daniel "Krupcake" Krupka</p>
+          <p>University of Pennsylvania, Class of 2016</p>
+          <p>Majors: (undergrad) Computer Science, (grad) Robotics</p>
+        </div>
+        <div style='float:left'>
+          <img src="/static/Adam.jpg" height="200px">
+          <p>Adam Poliak</p>
+          <p>Johns Hopkins University, Class of 2016</p>
+          <p>Major: Computer Science</p>
+        </div>
+      </div>
     </div>
 
+    <div id='popup' class='popup'></div>
 
     <div style='position: relative; top: 85%' class="panel panel-default">
       <div class="panel-footer navbar-fixed-bottom" style="text-align:right">
