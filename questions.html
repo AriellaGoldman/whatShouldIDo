@@ -5,15 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="static/questions_style.css">
 </head>
 
-<body>
+<body onload="load_qs('qlist',0)">
+	<span id="top-right" type="login">Log-in</span>
+	<span id="top-right" type="signup">Sign up</span>
 	<span id="top-right" type="logout">Log-out</span>
 	<h1>WSID Questions</h1>
-	<span>Most recent (1-10)</span>
+	<span>Most recent</span>
 	<div class="question">
 		
-		<div id="qlist">
-
-		</div>
+		<div id="qlist"></div>
 		
 	</div>
 

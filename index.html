@@ -3,6 +3,15 @@
   <title>What Should I Do?</title>
   <link rel="stylesheet" type="text/css" href="static/style.css">
   <script src="static/fblogin.js"></script>
+  
+  
+  <script>
+    function doLogin() {
+      var popup = document.getElementById('popup');
+      popup
+    }
+  </script>
+  
   </head>
 
   <body>
@@ -13,11 +22,22 @@
         <div contentEditable='true'></div>
         <span>or</span>
         <div contentEditable='true'></div>
-        <span>?</span>
+        <span>?</span><br/>
+        <input type="button" value="Consult the Masses"/>
       </div>
       
-      <div class='popup'>
+      <div id='popup' class='popup'>
         <h1>Sign up:</h1>
+        <span>Email: </span>
+        <input name='email' type='text'/><br/>
+        <span>Password: </span>
+        <input name='pword' type='text'/><br/>
+        <span>Confirm: </span>
+        <input name='repword' type='text'/><br/>
+        <input type='button' value='Login' onclick='doLogin()'/>
+        <div id="fb-root"></div>
+        
+        <!--
 		<div>
 			<span class='plain_text'>Email: </span>
 			<input class="input_field" name='uname' type='text'/><br/><br/>
@@ -38,8 +58,6 @@
 			
 		
         </div>
-
-        
 
       </div>
   </body>
