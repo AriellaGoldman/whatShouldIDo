@@ -5,7 +5,6 @@ $def with (sess)
     <title>What Should I Do?</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/static/fblogin.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css">
     <script src="/static/dist/js/bootstrap.js"></script>
     <script src="/static/sess.js"></script>
@@ -24,7 +23,8 @@ $def with (sess)
   $if sess is None:
     <body onload='showLogin()'>
   $else:
-    <body>
+    <body onload=''>
+  
   <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -76,7 +76,6 @@ $def with (sess)
       </div>
       
       <div id='popup' class='popup'></div>
-      
     <div style='position: relative; top: 60%' class="panel panel-default">
       <div class="panel-footer navbar-fixed-bottom" style="text-align:right;">
         By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
