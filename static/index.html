@@ -30,7 +30,9 @@ $def with ()
       function showLogout() {
         $$.ajax({
           url: "/s/logout",
-          success: showLogin();
+          success: function() {
+            showLogin();
+          }
         });
       }
       
