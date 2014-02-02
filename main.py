@@ -58,6 +58,13 @@ class QPage(object):
     qx = util.select_one('qlist', where='id=$id', vars={'id': pid})
     if qx is None:
       raise status.ApiError('401 Invalid Question')
+    sess = util.get_sess()
+    
+    data = web.data()
+    util.insert('alist', ans=data, up=0, down=0, qid=qx.id)
+    
+    raise status.ApiError('200 OK')
+    
 
 class Register(object):
   def GET(self):

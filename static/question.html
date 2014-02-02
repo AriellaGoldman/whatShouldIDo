@@ -14,6 +14,11 @@ $def with(q_id)
       
       <script>
         var pager = new pagination('question', $q_id);
+        
+        function doComment() {
+          var data = $$('#comment').html();
+          $$.post('/q/' + $q_id, data);
+        }
       </script>
 	</head>
   <body>
