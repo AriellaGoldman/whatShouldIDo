@@ -35,7 +35,7 @@ class RealQPage(object):
 class QList(object):
   def GET(self):
     params = web.input(limit=20, offset=0)
-    res2 = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, offset=params.offset)
+    res2 = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, order='DESC BY qlist.id', offset=params.offset)
     res = [r for r in res2]
     if len(res) < 1 and params.offset>0:
       raise status.ApiError('403 Invalid Page')
@@ -61,7 +61,7 @@ class QPage(object):
     qx = util.select_one('qlist JOIN users ON qlist.uid = users.id', where='qlist.id=$id', vars={'id': pid})
     if qx is None:
       raise status.ApiError('401 Invalid Question')
-    res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
+    res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, order='DESC BY alist.id' vars={'id': pid})
     res = [r for r in res2]
     if len(res) < 1 and params.offset>0:
       raise status.ApiError('403 Invalid Page')
