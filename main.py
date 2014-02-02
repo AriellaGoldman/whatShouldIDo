@@ -25,7 +25,9 @@ class Static(object):
   def GET(self,page):
     raise status.ApiReturn('static/' + page)
 
-class RealQPage(object)
+class RealQPage(object):
+  def GET(self,q):
+    raise status.ApiReturn('static/question', q)
 
 class QList(object):
   def GET(self):
