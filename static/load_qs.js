@@ -9,7 +9,7 @@ function load_qs(elt_id, offset) {
 }
 
 function load_comments(q_id) {
-	var url_name = "/q/question.id";
+	var url_name = "/q/$question.id";
 	$.ajax({
 		url: url_name,
 		success: function(result) {
