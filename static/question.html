@@ -22,7 +22,11 @@ $def with(q_id, sess)
         }
       </script>
 	</head>
-  <body>
+  
+    $if sess is None:
+      <body onload='showLogin()'>
+    $else:
+      <body>
     <div>
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">

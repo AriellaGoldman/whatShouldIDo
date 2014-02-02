@@ -121,7 +121,7 @@ class Login(object):
     user = util.select_one('users', where='email=$e', vars={'e':email})
     if user is None:
       return None
-    hashed = user['pass']
+    hashed = user.pword
     if bcrypt.hashpw(pword, hashed) == hashed:
     #if hashed == pword:
       return user
@@ -135,9 +135,8 @@ class Login(object):
     try:
       user = self.user_auth(var.email, var.pword)
       if user is None:
+        print "this one"
         raise status.ApiError('401 Unauthorized')
-      if var.pword != var.repword:
-        raise status.ApiError('403 Field Mismatch')
       
       sess = str(uuid.uuid4())[:64]
       values = {
@@ -147,7 +146,8 @@ class Login(object):
       util.insert('sessions', **values)
       web.setcookie('wsid_login', sess, expires=86400, path='/')
     except AttributeError as err:
-      raise status.ApiError('401 Unauthorized')
+      print "that one"
+      raise status.ApiError('401 Unauthorized (%s)' % err)
       
     web.redirect('/')
     #raise status.ApiError('200 OK')

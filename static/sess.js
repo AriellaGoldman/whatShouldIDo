@@ -10,13 +10,14 @@
 
       function showLogout() {
         $.post("/s/logout");
+        $("#popup").hide();
       }
       
       function doLogin() {
         var arr = [];
         $("#popup :input").each(function(idx,elem) {
           if(elem.getAttribute('type') != 'button')
-            arr.push(elem.id + "=" + elem.value);
+            arr.push(elem.getAttribute('name') + "=" + elem.value);
         });
         
         $.ajax({
@@ -43,5 +44,21 @@
             arr.push(elem.id + "=" + elem.value);
         });
         alert(arr.join('&'));
+        
+        $.ajax({
+          url: "/s/register?" + arr.join('&'),
+          type: "POST",
+          statusCode: {
+            403: function() {
+              $("#error").html("Error: Mismatched Passwords");
+            },
+            401: function() {
+              $("#error").html("Error: Username/Password is incorrect");
+            },
+            200: function() {
+              $("#popup").hide();
+            }
+          }
+        });
       }
       
