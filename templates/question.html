@@ -6,13 +6,13 @@ $def with (question, commentsList)
 
 <div>
 	<div class="question">
-		$question.name asked if they should $question.opt1 or $(question.opt2)...
+		<span style='font-weight:bold; border: 0px'>$question.name</span> asked if they should $question.opt1 or $(question.opt2)...
 	</div>
 	<div id="comment" ContentEditable="true">
-		FILLER
+		Oblige them.
 	</div>
 	<span id="comments" onclick='doComment()'>Comment</span>
-	<ul> 
+	<ul id='cm-list'> 
 		$for comment in commentsList:
 			<li>$comment.ans</li>
 	</ul>

@@ -19,11 +19,13 @@ urls = (
 
 class Index(object):
   def GET(self):
-    raise status.ApiReturn('static/index')
+    sess = util.get_sess()
+    raise status.ApiReturn('static/index', sess)
 
 class Static(object):
   def GET(self,page):
-    raise status.ApiReturn('static/' + page)
+    sess = util.get_sess()
+    raise status.ApiReturn('static/' + page, sess)
 
 class RealQPage(object):
   def GET(self,q):
@@ -52,7 +54,7 @@ class QPage(object):
     if qx is None:
       raise status.ApiError('401 Invalid Question')
     res = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
-    raise status.ApiReturn('templates/question', qx, res)
+    raise status.ApiReturn('templates/question', qx, res, sess)
   
   def POST(self, pid):
     qx = util.select_one('qlist', where='id=$id', vars={'id': pid})

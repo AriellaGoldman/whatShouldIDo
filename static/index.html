@@ -1,4 +1,4 @@
-$def with ()
+$def with (sess)
 
 <html>
   <head>
@@ -8,9 +8,7 @@ $def with ()
     <script src="/static/fblogin.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css">
     <script src="/static/dist/js/bootstrap.js"></script>
-
-
-    
+    <script src="/static/sess.js"></script>
     
     <script>
       function doAsk() {
@@ -18,43 +16,6 @@ $def with ()
         var opt2 = document.getElementById('opt2').value;
         $$.post("/q/?opt1=" + opt1 + "&opt2=" + opt2);
       }
-      
-      function showRegister() {
-        $$("#popup").load("/s/register").show();
-      }
-      
-      function showLogin() {
-        $$("#popup").load("/s/login").show();
-      }
-
-      function showLogout() {
-        $$.ajax({
-          url: "/s/logout",
-          success: function() {
-            showLogin();
-          }
-        });
-      }
-      
-      function doLogin() {
-        var arr = [];
-        $$("#popup :input").each(function(idx,elem) {
-          if(elem.getAttribute('type') != 'button')
-            arr.push(elem.id + "=" + elem.value);
-        });
-        alert(arr.join('&'));
-        $$.post('/s/register?' + arr.join('&'));
-      }
-      
-      function doRegister() {
-        var arr = [];
-        $$("#popup :input").each(function(idx,elem) {
-          if(elem.getAttribute('type') != 'button')
-            arr.push(elem.id + "=" + elem.value);
-        });
-        alert(arr.join('&'));
-      }
-      
     </script>
   
   </head>
