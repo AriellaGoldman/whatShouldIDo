@@ -9,6 +9,8 @@ function pagination(page_elt) {
 				$("#" + page_elt).html(result);
 			} 
 		});
+    
+    page_number++;
 	}
 
 	this.loadprev = function() {
@@ -19,6 +21,8 @@ function pagination(page_elt) {
 				$("#" + page_elt).html(result);
 			} 
 		});
+  
+    page_number--;
 	}
 }
 
