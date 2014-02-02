@@ -2,7 +2,7 @@ function pagination(page_elt) {
 	var page_number = 0;
 
 	this.loadnext = function() {
-		var url_name = "/q?limit=10&offset=" + (page_number + 1);
+		var url_name = "/q?limit=10&offset=" + (10*(page_number + 1));
 		$.ajax({
 			url: url_name,
 			success: function(result) {
@@ -17,7 +17,7 @@ function pagination(page_elt) {
     if(page_number < 1)
       return;
     
-		var url_name = "/q?limit=10&offset=" + (page_number - 1);
+		var url_name = "/q?limit=10&offset=" + (10*(page_number - 1));
 		$.ajax({
 			url: url_name,
 			success: function(result) {
