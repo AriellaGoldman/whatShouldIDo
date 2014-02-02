@@ -69,7 +69,7 @@ html,body {
 	display:inline-block;
 }
 .input_field{
-	width: 15em;
+	width: 14em;
 	float: right;
 }
 
@@ -80,6 +80,11 @@ html,body {
 
 .logininfo{
   float: left;
+}
+
+#login{
+	padding-top:10%;
+	padding-bottom:10%;
 }
 
 .input_text{
