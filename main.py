@@ -22,7 +22,7 @@ class Index(object):
 
 class Static(object):
   def GET(self,page):
-    raise status.ApiReturn(page)
+    raise status.ApiReturn('static/' + page)
 
 class QList(object):
   def GET(self):
