@@ -116,11 +116,21 @@ class Logout(object):
 class Login(object):
   def GET(self):
     raise status.ApiReturn('templates/login')
+  
+  def user_auth(self, email, pword):
+    user = util.select_one('users', where='email=$e', vars={'e':email})
+    if user is None:
+      return None
+    hashed = user['pass']
+    if bcrypt.hashpw(pword, hashed) == hashed:
+    #if hashed == pword:
+      return user
+    return None
     
   def POST(self):
-    params = web.input()
+    var = web.input()
     
-    if fb in params:
+    if 'fb' in var:
       raise status.ApiError('200 OK')
     try:
       user = self.user_auth(var.email, var.pword)
@@ -136,7 +146,7 @@ class Login(object):
       }
       util.insert('sessions', **values)
       web.setcookie('wsid_login', sess, expires=86400, path='/')
-    except KeyError as err:
+    except AttributeError as err:
       raise status.ApiError('401 Unauthorized')
       
     web.redirect('/')

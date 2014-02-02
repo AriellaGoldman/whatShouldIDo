@@ -18,8 +18,22 @@
           if(elem.getAttribute('type') != 'button')
             arr.push(elem.id + "=" + elem.value);
         });
-        alert(arr.join('&'));
-        $.post('/s/register?' + arr.join('&'));
+        
+        $.ajax({
+          url: "/s/login?" + arr.join('&'),
+          type: "POST",
+          statusCode: {
+            403: function() {
+              $("#error").html("Error: Mismatched Passwords");
+            },
+            401: function() {
+              $("#error").html("Error: Username/Password is incorrect");
+            },
+            200: function() {
+              $("#popup").hide();
+            }
+          }
+        });
       }
       
       function doRegister() {
@@ -31,20 +45,3 @@
         alert(arr.join('&'));
       }
       
-      function doErrorMessage() {
-		var arr = [];
-		$.ajax({
-			statusCode: {
-				403: function() {
-				$("#error").html("Error: Mismatched Passwords");
-				}
-			}
-			statusCode: {
-				401: function() {
-					$("#error").html("Error: Username/Password is incorrect");
-				}
-			}
-		});
-	  }
-		$("#error").html("Error: Invalid Input");
-	  }	
