@@ -37,7 +37,7 @@ class QList(object):
     params = web.input(limit=20, offset=0)
     res2 = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, offset=params.offset)
     res = [r for r in res2]
-    if len(res) < 1 and var.offset>0:
+    if len(res) < 1 and params.offset>0:
       raise status.ApiError('403 Invalid Page')
     raise status.ApiReturn('templates/qlist', res)
   
@@ -63,7 +63,7 @@ class QPage(object):
       raise status.ApiError('401 Invalid Question')
     res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, vars={'id': pid})
     res = [r for r in res2]
-    if len(res) < 1 and var.offset>0:
+    if len(res) < 1 and params.offset>0:
       raise status.ApiError('403 Invalid Page')
     
     sess = util.get_sess()
