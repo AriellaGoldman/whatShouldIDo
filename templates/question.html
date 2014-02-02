@@ -9,8 +9,9 @@ $def with (question, commentsList)
 		$question.name asked if they should $question.opt1 or $(question.opt2)...
 	</div>
 	<div id="comment" ContentEditable="true">
-		FIllER
+		FILLER
 	</div>
+	<span id="comments">Comment</span>
 	<ul> 
 		$for comment in commentsList:
 			<li>$comment.ans</li>
