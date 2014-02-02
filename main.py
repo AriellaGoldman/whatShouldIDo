@@ -61,7 +61,7 @@ class QPage(object):
     qx = util.select_one('qlist JOIN users ON qlist.uid = users.id', where='qlist.id=$id', vars={'id': pid})
     if qx is None:
       raise status.ApiError('401 Invalid Question')
-    res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, order='alist.id DESC' vars={'id': pid})
+    res2 = util.select('alist JOIN qlist ON qlist.id = alist.qid JOIN users ON qlist.uid = users.id', where='qid=$id', limit=params.limit, offset=params.offset, order='alist.id DESC', vars={'id': pid})
     res = [r for r in res2]
     if len(res) < 1 and params.offset>0:
       raise status.ApiError('403 Invalid Page')
