@@ -25,8 +25,16 @@ $def with ()
       
       function doLogin() {
         var arr = [];
-        $$("#popup")("input").each(function(idx,elem) {
-          arr.push(elem.id + "=" elem.value);
+        $$("#popup").select("input").each(function(idx,elem) {
+          arr.push(elem.id + "=" + elem.value);
+        });
+        alert(arr.join());
+      }
+      
+      function doRegister() {
+        var arr = [];
+        $$("#popup").select("input").each(function(idx,elem) {
+          arr.push(elem.id + "=" + elem.value);
         });
         alert(arr.join());
       }
