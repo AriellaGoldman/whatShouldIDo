@@ -3,15 +3,15 @@
 <head>
 	
 	<title>WSID Questions</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-	</script>
-		<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="/static/questions_style.css">
-	<script src="dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/fblogin.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/dist/css/bootstrap.min.css">
+    <script src="static/dist/js/bootstrap.js"></script>
 
-	<script src="/static/load_qs.js"></script>
-	<script src="/static/pagination.js"></script>
+	<script src="static/load_qs.js"></script>
+	<script src="static/pagination.js"></script>
   
   <script>
     var pager = new pagination('qlist');
@@ -20,13 +20,32 @@
 
 <body onload="load_qs('qlist',0)">
 
-	<script src="dist/js/bootstrap.js"></script>
-	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="static/questions_style.css">
+	<link rel="stylesheet" type="text/css" href="static/questions_style.css">
 
-
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">What Should I Do?</a>
+			</div>
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <ul class="nav nav-pullright">
+					<li class="nav-button" type="login" onclick="showLogout()">
+						<a href="#">Logout</a>
+					</li>
+				  </ul>
+				  
+				</div> 
+		
+		</nav>
 	
-	<span id="top-right" type="logout">Log-out</span>
 	<h1>WSID Questions</h1>
 	<h3>Most recent</h3>
 	
