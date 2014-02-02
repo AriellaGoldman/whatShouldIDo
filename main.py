@@ -18,7 +18,7 @@ urls = (
 
 class Index(object):
   def GET(self):
-    raise status.ApiReturn('index')
+    raise status.ApiReturn('static/index')
 
 class Static(object):
   def GET(self,page):
