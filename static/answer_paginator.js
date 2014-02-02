@@ -10,7 +10,7 @@ function pagination(page_elt,q_id) {
         elem.innerHTML = (10*page_number + idx + 1) + ". " + elem.innerHTML;
       });
     },
-    statuscode: {
+    statusCode: {
       403: null
     }
   });
@@ -25,7 +25,7 @@ function pagination(page_elt,q_id) {
           elem.innerHTML = (10*page_number + idx + 1) + ". " + elem.innerHTML;
         });
 			} ,
-      statuscode: {
+      statusCode: {
         403: null
       }
 		});
