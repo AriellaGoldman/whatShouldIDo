@@ -34,3 +34,7 @@ h1{
 	width: 6em;
 	text-align: center;
 }
+
+ul{
+	list-style-type: none;
+}
