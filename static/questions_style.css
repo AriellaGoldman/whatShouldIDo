@@ -47,8 +47,9 @@ li:hover{
 
 span{
 	width: 5em;
-	border:2px solid;
+	border:1px solid;
 	border-radius:25px;
+	text-align: center;
 }
 
 span:hover{
