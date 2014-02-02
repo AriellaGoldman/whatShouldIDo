@@ -1,64 +1,42 @@
+$def with ()
+
 <html>
   <head>
-  <title>What Should I Do?</title>
-  <link rel="stylesheet" type="text/css" href="static/style.css">
-  <script src="static/fblogin.js"></script>
-  
-  
-  <script>
-    function doLogin() {
-      var popup = document.getElementById('popup');
-      popup
-    }
-  </script>
+    <title>What Should I Do?</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/fblogin.js"></script>
+    
+    
+    <script>
+      function doAsk() {
+        var opt1 = document.getElementById('opt1').value;
+        var opt2 = document.getElementById('opt2').value;
+        $$.post("/q/?opt1=" + opt1 + "&opt=" + opt2);
+      }
+      
+      function showRegister() {
+        $$("#popup").load("/s/register").show();
+      }
+      
+      function showLogin() {
+        $$("#popup").load("/s/login").show();
+      }
+    </script>
   
   </head>
 
   <body>
-	  
       <div id='sbox'>
         <h1>What Should I Do?</h1>
         <span>Should I</span>
-        <div contentEditable='true'></div>
+        <input type='text' id='opt1' contentEditable='true'/>
         <span>or</span>
-        <div contentEditable='true'></div>
+        <input type='text'  id='opt2' contentEditable='true'/>
         <span>?</span><br/>
-        <input type="button" value="Consult the Masses"/>
+        <input type="button" value="Consult the Masses" onclick="doAsk()">
       </div>
       
-      <div id='popup' class='popup'>
-        <h1>Sign up:</h1>
-        <span>Email: </span>
-        <input name='email' type='text'/><br/>
-        <span>Password: </span>
-        <input name='pword' type='text'/><br/>
-        <span>Confirm: </span>
-        <input name='repword' type='text'/><br/>
-        <input type='button' value='Login' onclick='doLogin()'/>
-        <div id="fb-root"></div>
-        
-        <!--
-		<div>
-			<span class='plain_text'>Email: </span>
-			<input class="input_field" name='uname' type='text'/><br/><br/>
-			<span class='plain_text'>Password: </span>
-			<input class="input_field" 'name='pass' type='text'/><br/><br/>
-			<span class='plain_text'>Confirm Password: </span>
-			<input class="input_field" name='repass' type='text'/><br/><br/>
-		</div>
-		<div class='login-button'>			
-			<input id="normal-login" type='button' value='Login'/>
-			<span>or login here</span>
-			<div id="fb-root"></div>
-			<!--
-		  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-		  present a graphical Login button that triggers the FB.login() function when clicked. -->
-			<fb:login-button show-faces="true"></fb:login-button>
-
-			
-		
-        </div>
-
-      </div>
+      <div id='popup' class='popup'></div>
   </body>
 </html>
