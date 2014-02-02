@@ -11,7 +11,7 @@ $def with (question, commentsList)
 	<div id="comment" ContentEditable="true">
 		FILLER
 	</div>
-	<span id="comments">Comment</span>
+	<span id="comments" onclick='doComment()'>Comment</span>
 	<ul> 
 		$for comment in commentsList:
 			<li>$comment.ans</li>
