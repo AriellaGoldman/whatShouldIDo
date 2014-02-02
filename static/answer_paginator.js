@@ -9,7 +9,10 @@ function pagination(page_elt,q_id) {
       $("#" + page_elt + " li").each(function(idx,elem) {
         elem.innerHTML = (10*page_number + idx + 1) + ". " + elem.innerHTML;
       });
-    } 
+    },
+    statuscode: {
+      403: null
+    }
   });
   
   this.reload = function() {
@@ -21,7 +24,10 @@ function pagination(page_elt,q_id) {
         $("#" + page_elt + " li").each(function(idx,elem) {
           elem.innerHTML = (10*page_number + idx + 1) + ". " + elem.innerHTML;
         });
-			} 
+			} ,
+      statuscode: {
+        403: null
+      }
 		});
 	}
   

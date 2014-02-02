@@ -23,7 +23,55 @@ $def with (sess)
   $if sess is None:
     <body onload='showLogin()'>
   $else:
-    <body onload=''>
+    <body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '217657201758115',
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        alert("yay");
+      } else if (response.status === 'not_authorized') {
+        alert("maybe");
+      } else {
+        FB.login(function(response) {
+         if (response.authResponse) {
+           console.log('Welcome!  Fetching your information.... ');
+           FB.api('/me', function(response) {
+             console.log('Good to see you, ' + response.name + '.');
+           });
+         } else {
+           console.log('User cancelled login or did not fully authorize.');
+         }
+       });
+      }
+    });
+  };
+
+  // Load the SDK asynchronously
+  (function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+  // Here we run a very simple test of the Graph API after login is successful. 
+  // This testAPI() function is only called in those cases. 
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Good to see you, ' + response.name + '.');
+    });
+  }
+</script>
   
   <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
