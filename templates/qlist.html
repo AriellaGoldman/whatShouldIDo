@@ -1,0 +1,7 @@
+$def with(qlist)
+<!-- loop.index, name, opt1, opt2-->
+
+<ul>
+	$for q in qlist:
+		<li>Should I $q.opt1 or $q.opt2 ? $q.name</li>
+</ul>
