@@ -1,5 +1,6 @@
 body{
 	font-family: Calibri;
+	background-color: #99CCFF;
 }
 
 #top-right{
@@ -18,4 +19,18 @@ h1{
 .question{
 	margin-left: 3em;
 	text-align: left;
+}
+
+.comments{
+	color: orange;
+	text-decoration: underline;
+}
+
+#bottom-right{
+	float: right;
+	border: solid;
+	margin-right:0.5em;
+	margin-left: 0.5em;
+	width: 6em;
+	text-align: center;
 }
