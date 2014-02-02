@@ -1,12 +1,18 @@
 $def with ()
 
 <div>
-  <h1>Register</h1>
-  <span>Email: </span>
-  <input id='email' name='email' type='text'/><br/>
-  <span>Password: </span>
-  <input id='pword' name='pword' type='text'/><br/>
-  <span>Confirm: </span>
-  <input id='repword' name='repword' type='text'/><br/>
-  <input type='button' value='Login' onclick='doRegister()'/>
+  <h1>Sign In</h1>
+  <div>
+	  <span class="logininfo">Email: </span>
+	  <input class="input_text" id='email' name='email' type='text'/><br/>
+  </div>
+  <div>
+	  <span class="logininfo">Password: </span>
+	  <input class="input_text" id='pword' name='pword' type='password'/><br/>
+  </div>
+  <div>
+	  <span class="logininfo">Confirm: </span>
+	  <input class="input_text" id='repword' name='repword' type='password'/><br/>
+  </div>
+  <input type='button' value='Login' onclick='doLogin()'/>
 </div>

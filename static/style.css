@@ -76,5 +76,13 @@ html,body {
 
 .login-button{
 	display:inline-block;
+}
 
+.logininfo{
+  float: left;
+}
+
+.input_text{
+  float: right;
+  width: 20em;
 }
