@@ -48,6 +48,8 @@ class QList(object):
       util.insert('qlist', uid=sess.uid, opt1=qx.opt1, opt2=qx.opt2)
     except AttributeError:
       raise status.ApiError('401 Missing Input(s)')
+    
+    raise status.ApiError('200 OK')
 
 class QPage(object):
   def GET(self, pid):
@@ -98,7 +100,7 @@ class Register(object):
     except KeyError as err:
       raise status.ApiError('401 Unauthorized')
       
-    web.redirect('/')
+    raise status.ApiError('200 OK')
 
 class Logout(object):
   def POST(self):
@@ -111,7 +113,7 @@ class Logout(object):
       raise status.ApiError('401 Not logged in')
     except KeyError:
       raise status.ApiError('401 Invalid session')
-    web.redirect('/')
+    raise status.ApiError('200 OK')
 
 class Login(object):
   def GET(self):
@@ -123,7 +125,6 @@ class Login(object):
       return None
     hashed = user.pword
     if bcrypt.hashpw(pword, hashed) == hashed:
-    #if hashed == pword:
       return user
     return None
     

@@ -31,7 +31,6 @@ def get_sess():
   sess_key = web.cookies().get('wsid_login')
   if sess_key is None:
     return None
-    #raise status.ApiError('401 Not Logged In')
   
   sess = select_one('sessions JOIN users ON (sessions.uid = users.id)', where='sess=$s', vars={'s': sess_key})
   if sess is None:

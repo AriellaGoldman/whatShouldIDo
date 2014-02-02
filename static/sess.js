@@ -10,7 +10,7 @@
 
       function showLogout() {
         $.post("/s/logout");
-        $("#popup").hide();
+        location.reload();
       }
       
       function doLogin() {
@@ -32,6 +32,7 @@
             },
             200: function() {
               $("#popup").hide();
+              location.reload();
             }
           }
         });
@@ -57,6 +58,7 @@
             },
             200: function() {
               $("#popup").hide();
+              location.reload();
             }
           }
         });
