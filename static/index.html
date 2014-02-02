@@ -15,7 +15,7 @@ $def with (sess)
         var opt1 = document.getElementById('opt1').value;
         var opt2 = document.getElementById('opt2').value;
         $$.post("/q/?opt1=" + opt1 + "&opt2=" + opt2);
-        location.redirect('/u/questions');
+        window.location = '/u/questions';
       }
     </script>
   
