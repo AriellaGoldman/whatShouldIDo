@@ -26,8 +26,8 @@ h1{
 	text-decoration: underline;
 }
 
-#bottom-right{
-	float: right;
+#bottom-left{
+	float: left;
 	border: solid;
 	margin-right:0.5em;
 	margin-left: 0.5em;
@@ -45,11 +45,11 @@ li:hover{
 }
 
 span{
+	width: 4em;
 	border:2px solid;
 	border-radius:25px;
-	box-shadow: 10px 10px 5px #888888;
 }
 
 span:hover{
-	color: yellow;
+	color: purple;
 }

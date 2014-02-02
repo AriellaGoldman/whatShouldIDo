@@ -26,6 +26,13 @@ $def with ()
       function showLogin() {
         $$("#popup").load("/s/login").show();
       }
+
+      function showLogout() {
+        $.ajax({
+          url: "/s/logout",
+          success: showLogin();
+        });
+      }
       
       function doLogin() {
         var arr = [];
