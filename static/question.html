@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $def with(q_id)
+=======
+$def with (q_id)
+>>>>>>> 5d23fafe7624ae8925ad2d75620cd52f341715de
 
 <html>
 	<head>
@@ -12,9 +16,10 @@ $def with(q_id)
     	<script src="/static/answer_paginator.js"></script>
       
       <script>
-        var pager = new paginator('question', q_id);
+        var pager = new pagination('question', $q_id);
       </script>
 	</head>
+<<<<<<< HEAD
   <body>
     <div>
       <nav class="navbar navbar-default" role="navigation">
@@ -51,7 +56,45 @@ $def with(q_id)
       <span></span>
 
       <span class="bottom-left" onclick='pager.loadnext()'>Next Page</span>
+=======
 
-    </div>
-  </body>
+	<div>
+		<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="index.html">What Should I Do?</a>
+			</div>
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <ul class="nav nav-pullright">a
+				  	<li class="nav-pullleft" style="float:left;">
+							<a href="../about">About</a>
+					</li>
+					<li class="nav-pullleft" style="float:left;">
+							<a href="../questions">Questions</a>
+					</li>
+					<li class="nav-button" type="login" onclick="showLogout()">
+						<a href="#">Logout</a>
+					</li>
+				  </ul>
+				  
+				</div> 
+		
+		</nav>
+		<h1>WSID Question</h1>
+		<div id="question">
+			
+		</div>
+		
+		<span id="bottom-right">More Comments</span>
+>>>>>>> 5d23fafe7624ae8925ad2d75620cd52f341715de
+
+	</div>
 </html>
