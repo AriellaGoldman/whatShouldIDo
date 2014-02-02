@@ -19,6 +19,7 @@ $def with(q_id, sess)
         function doComment() {
           var data = $$.trim($$('#comment').html());
           $$.post('/q/' + $q_id, data);
+          pager.reload();
         }
       </script>
 	</head>
