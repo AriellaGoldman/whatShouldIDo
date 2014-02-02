@@ -42,12 +42,18 @@ $def with (sess)
 			<li class="nav-pullleft" style="float:left;">
                 <a href="./u/questions">Questions</a>
             </li>
-  					<li class="nav-button" type="login" onclick="showLogin()">
-  						<a href="#">Login</a>
-  					</li>
-  					<li class="nav-button" type="register" onclick="showRegister()">
-  						<a href="#">Register</a>
-  					</li>
+            $if sess is None:
+              <li class="nav-button" type="login" onclick="showLogin()">
+                <a href="#">Login</a>
+              </li>
+              <li class="nav-button" type="register" onclick="showRegister()">
+                <a href="#">Register</a>
+              </li>
+            $else:
+              <li class="nav-button" type="register" onclick="showLogout()">
+                <a href="#">logout</a>
+              </li>
+              
 				  </ul>
 				  
 				</div> 

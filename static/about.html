@@ -1,11 +1,13 @@
+$def with (sess)
+
 <html>
   <head>
     <title>What Should I Do?</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="static/fblogin.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
-    <script src="dist/js/bootstrap.js"></script>
+    <script src="/static/fblogin.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css">
+    <script src="/staticdist/js/bootstrap.js"></script>
   </head>
 	<body>
 	 <nav class="navbar navbar-default" role="navigation">
@@ -24,30 +26,34 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav nav-pullright">
 					<li class="nav-pullleft" style="float:left;">
-						<a href="./about">About</a>
+						<a href="/u/about">About</a>
 					</li>
 					<li class="nav-pullleft" style="float:left;">
-                <a href="./questions">Questions</a>
+                <a href="/u/questions">Questions</a>
             </li>
-					<li class="nav-button" type="login" onclick="showLogin()">
-						<a href="#">Login</a>
-					</li>
-					<li class="nav-button" type="register" onclick="showReigster()">
-						<a href="#">Register</a>
-					</li>
+          $if sess is None:
+            <li class="nav-button" type="login" onclick="showLogin()">
+              <a href="#">Login</a>
+            </li>
+            <li class="nav-button" type="register" onclick="showReigster()">
+              <a href="#">Register</a>
+            </li>
+          $else:
+            <li class="nav-button" type="register" onclick="showLogout()">
+              <a href="#">Logout</a>
+            </li>
+            
 				  </ul>
 				  
 				</div> 
 		</nav>
 		
 
+    <div style='position: relative; top: 65%' class="panel panel-default">
+      <div class="panel-footer navbar-fixed-bottom" style="text-align:right;">
+        By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
+      </div>
+    </div>
 		
 	</body>
-	<footer>
-		<div class="panel panel-default">
-			<div class="panel-footer" style="text-align:right;">
-				By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
-			</div>
-		</div>
-	</footer>
 </html>
