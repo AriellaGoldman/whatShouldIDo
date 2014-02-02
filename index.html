@@ -12,7 +12,7 @@ $def with ()
       function doAsk() {
         var opt1 = document.getElementById('opt1').value;
         var opt2 = document.getElementById('opt2').value;
-        $$.post("/q/?opt1=" + opt1 + "&opt=" + opt2);
+        $$.post("/q/?opt1=" + opt1 + "&opt2=" + opt2);
       }
       
       function showRegister() {
@@ -25,19 +25,23 @@ $def with ()
       
       function doLogin() {
         var arr = [];
-        $$("#popup").select("input").each(function(idx,elem) {
-          arr.push(elem.id + "=" + elem.value);
+        $$("#popup :input").each(function(idx,elem) {
+          if(elem.getAttribute('type') != 'button')
+            arr.push(elem.id + "=" + elem.value);
         });
-        alert(arr.join());
+        alert(arr.join('&'));
+        $$.post('/s/register?' + arr.join('&'));
       }
       
       function doRegister() {
         var arr = [];
-        $$("#popup").select("input").each(function(idx,elem) {
-          arr.push(elem.id + "=" + elem.value);
+        $$("#popup :input").each(function(idx,elem) {
+          if(elem.getAttribute('type') != 'button')
+            arr.push(elem.id + "=" + elem.value);
         });
-        alert(arr.join());
+        alert(arr.join('&'));
       }
+      
     </script>
   
   </head>
