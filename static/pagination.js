@@ -1,5 +1,5 @@
 function pagination(page_elt) {
-	var page_number = 1;
+	var page_number = 0;
 
 	this.loadnext = function() {
 		var url_name = "/q?limit=10&offset=" + (page_number + 1);
@@ -14,6 +14,9 @@ function pagination(page_elt) {
 	}
 
 	this.loadprev = function() {
+    if(page_number < 1)
+      return;
+    
 		var url_name = "/q?limit=10&offset=" + (page_number - 1);
 		$.ajax({
 			url: url_name,
