@@ -1,0 +1,21 @@
+body{
+	font-family: Calibri;
+}
+
+#top-right{
+	float: right;
+	border: solid;
+	margin-right:0.5em;
+	margin-left: 0.5em;
+	width: 4em;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}
+
+.question{
+	margin-left: 3em;
+	text-align: left;
+}
