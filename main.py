@@ -35,7 +35,7 @@ class RealQPage(object):
 class QList(object):
   def GET(self):
     params = web.input(limit=20, offset=0)
-    res = util.select('qlist JOIN users ON qlist.uid = users.id', limit=params.limit, offset=params.offset)
+    res = util.select('qlist JOIN users ON qlist.uid = users.id', what='qlist.id AS id, users.name AS name, qlist.opt1 AS opt1, qlist.opt2 AS opt2', limit=params.limit, offset=params.offset)
     raise status.ApiReturn('templates/qlist', res)
   
   def POST(self):
@@ -107,8 +107,8 @@ class Logout(object):
     try:
       sess_key = web.cookies().wsid_login
       sess = util.select_one('sessions', where='sess=$s', vars={'s': sess_key})
-      web.setcookie('wsid_login','',expires=-1,path='/')
-      util.delete('sessions', where='sess=$s', vars={'s': sess_key})
+      web.setcookie('wsid_login',sess_key,expires=-1)
+      print "del", util.delete('sessions', where='sess=$s', vars={'s': sess_key})
     except AttributeError:
       raise status.ApiError('401 Not logged in')
     except KeyError:
@@ -145,7 +145,7 @@ class Login(object):
         'uid': user['id']
       }
       util.insert('sessions', **values)
-      web.setcookie('wsid_login', sess, expires=86400, path='/')
+      web.setcookie('wsid_login', sess, path='/')
     except AttributeError as err:
       print "that one"
       raise status.ApiError('401 Unauthorized (%s)' % err)

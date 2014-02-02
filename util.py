@@ -34,7 +34,7 @@ def get_sess():
   
   sess = select_one('sessions JOIN users ON (sessions.uid = users.id)', where='sess=$s', vars={'s': sess_key})
   if sess is None:
-    raise status.ApiError('401 Invalid Session')
+    return None
   return sess
 
 print "created ConMgr"
