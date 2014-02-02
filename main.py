@@ -8,6 +8,7 @@ import uuid
 
 urls = (
   '/', 'Index',
+  '/u/question/([0-9]+)', 'RealQPage',
   '/u/([a-zA-Z_.]+)', 'Static',
   '/q/?', 'QList',
   '/q/([0-9]+)/?', 'QPage',
@@ -23,6 +24,8 @@ class Index(object):
 class Static(object):
   def GET(self,page):
     raise status.ApiReturn('static/' + page)
+
+class RealQPage(object)
 
 class QList(object):
   def GET(self):
