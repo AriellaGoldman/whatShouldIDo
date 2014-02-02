@@ -94,3 +94,6 @@ html,body {
 .nav-button {
 	float: right;
 }
+.nav-pullleft {
+	float: left;
+}
