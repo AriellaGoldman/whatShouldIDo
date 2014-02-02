@@ -1,0 +1,115 @@
+$def with ()
+
+<html>
+  <head>
+    <title>What Should I Do?</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/static/fblogin.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.min.css">
+    <script src="/static/dist/js/bootstrap.js"></script>
+
+
+    
+    
+    <script>
+      function doAsk() {
+        var opt1 = document.getElementById('opt1').value;
+        var opt2 = document.getElementById('opt2').value;
+        $$.post("/q/?opt1=" + opt1 + "&opt2=" + opt2);
+      }
+      
+      function showRegister() {
+        $$("#popup").load("/s/register").show();
+      }
+      
+      function showLogin() {
+        $$("#popup").load("/s/login").show();
+      }
+
+      function showLogout() {
+        $.ajax({
+          url: "/s/logout",
+          success: showLogin();
+        });
+      }
+      
+      function doLogin() {
+        var arr = [];
+        $$("#popup :input").each(function(idx,elem) {
+          if(elem.getAttribute('type') != 'button')
+            arr.push(elem.id + "=" + elem.value);
+        });
+        alert(arr.join('&'));
+        $$.post('/s/register?' + arr.join('&'));
+      }
+      
+      function doRegister() {
+        var arr = [];
+        $$("#popup :input").each(function(idx,elem) {
+          if(elem.getAttribute('type') != 'button')
+            arr.push(elem.id + "=" + elem.value);
+        });
+        alert(arr.join('&'));
+      }
+      
+    </script>
+  
+  </head>
+
+  <body>
+	 <nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="./">What Should I Do?</a>
+			</div>
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <ul class="nav nav-pullright">
+            <li class="nav-pullleft" style="float:left;">
+                <a href="./u/about">About</a>
+            </li>
+			<li class="nav-pullleft" style="float:left;">
+                <a href="./u/questions">Questions</a>
+            </li>
+  					<li class="nav-button" type="login" onclick="showLogin()">
+  						<a href="#">Login</a>
+  					</li>
+  					<li class="nav-button" type="register" onclick="showRegister()">
+  						<a href="#">Register</a>
+  					</li>
+				  </ul>
+				  
+				</div> 
+		
+		</nav>
+	  
+      <span id="top">What Should I Do?</span>
+      <div id='sbox'>
+        <span>Should I</span>
+        <input type='text' id='opt1' contentEditable='true'/>
+        <span>or</span>
+        <input type='text'  id='opt2' contentEditable='true'/>
+        <span>?</span><br/>
+        <input type="button" value="Consult the Masses" onclick="doAsk()">
+      </div>
+      
+      <div id='popup' class='popup'></div>
+
+	</div>
+  </body>
+  <footer>
+        <div class="panel panel-default">
+		<div class="panel-body" style="text-align:right;">
+			By Krupcake, the Penn Head TA, Mahatma Gindi, Poliak - Copyright 2014
+	  </div>
+  
+  </footer>
+</html>
